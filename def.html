@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>BSc (Hons) DS Final Project | Defenders</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">BSc (Hons) Data Science Final Project | COBScDS221P-008</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="findings.html">Findings</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<header>
+							<div class="inner">
+								<h2>Defenders</h2>
+								<p>An overview of the model created for defenders.</p>
+							</div>
+						</header>
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+
+									<h3 class="major">Introduction to the model</h3>
+									
+									<p align="justify">
+									This model was built to act as an objective baseline for choosing defenders to be included in the <i>FTOTS</i>. Details of the overall outlook of the model are provided below. 
+									</p>
+									
+									<p align="justify">
+									<b>Imputation method:</b> eXtreme Gradient Boosting<br>
+									<b>Algorithm chosen:</b> Extremely Randomised Trees<br>
+									<b>Number of features chosen:</b> 43 (40 selected using a customised implementation of Recursive Feature Elimination, after which the binary-encoded league variable was included)
+									<br><br>
+									Accordingly, the features selected for the defender model were as follows:
+									</p>
+									
+									<p align="center">
+									<img src="images/def_var.png" height="500">
+									</p>
+									
+									<p align="justify">
+									The interactive plot provided below showcases the results of a three-component Principal Component Analysis undertaken (on the test set) for the aforementioned 43 variables on all of the available seasons for defenders (after imputation of nulls), with information about model choices included. 
+									Each data point here represents a defender. Colours of the points represent the following:</p>
+									<ul>
+									<li>Points marked in green signify players included in both the actual <i>FTOTS</i> and the model's choices.</li>
+									<li>Points marked in grey signify players not included in either the actual <i>FTOTS</i> or the model's choices.</li>
+									<li>Points marked in blue signify players only included in the model's choices.</li>
+									<li>Points marked in pink signify players only included in the actual <i>FTOTS</i>.</li>
+									</ul>
+									
+									<p align="center">
+										<iframe scrolling="no" style="border:none;display:block;max-height:600px !important;min-height:168.75px !important;" seamless="seamless" src="plots/df_ftots_pca.html" height="900"  width="100%" frameborder="0"></iframe>
+									</p>
+									<p align="center"><font size="2">  
+									Click on legend once to exclude a trace. Double-click to isolate a trace.</font>  
+									</p>
+									
+									<p align="justify">  
+									The same plot, broken down by leagues, are provided below. Overall, it was observable that the points in blue (i.e. players only included in the model's choices) seemed to be scattered closer to the points in green 
+									(players included in both the actual <i>FTOTS</i> and the model's choices) than the points in pink (players only included in the actual <i>FTOTS</i>). This could essentially point to a general trend for choosing
+									players into the <i>FTOTS</i> having been captured by the model.
+									</p>
+									<p align="center">
+										<iframe scrolling="no" style="border:none;display:block;max-height:600px !important;min-height:168.75px !important;" seamless="seamless" src="plots/df_pl_ftots_pca.html" height="900"  width="100%" frameborder="0"></iframe>
+									</p>
+									<p align="center">
+										<iframe scrolling="no" style="border:none;display:block;max-height:600px !important;min-height:168.75px !important;" seamless="seamless" src="plots/df_bl_ftots_pca.html" height="900"  width="100%" frameborder="0"></iframe>
+									</p>
+									<p align="center">
+										<iframe scrolling="no" style="border:none;display:block;max-height:600px !important;min-height:168.75px !important;" seamless="seamless" src="plots/df_ll_ftots_pca.html" height="900"  width="100%" frameborder="0"></iframe>
+									</p>
+									<p align="center">
+										<iframe scrolling="no" style="border:none;display:block;max-height:600px !important;min-height:168.75px !important;" seamless="seamless" src="plots/df_sa_ftots_pca.html" height="900"  width="100%" frameborder="0"></iframe>
+									</p>
+									<p align="center">
+										<iframe scrolling="no" style="border:none;display:block;max-height:600px !important;min-height:168.75px !important;" seamless="seamless" src="plots/df_le_ftots_pca.html" height="900"  width="100%" frameborder="0"></iframe>
+									</p>
+									
+									<p align="justify">
+									Of the 111 possible inclusions in the test set, the defender model was able to choose an equivalent (either the exact same player chosen by the current system or one with the same 
+									score in the scoring method utilised) or better alternative to the actual inclusion 79.28% of the time; directly better 
+									alternatives were chosen 30.63% of the time.
+									</p>
+									
+									<p align="justify">
+									More information on the defenders in the test set included in the <i>FTOTS</i> and those chosen by the model can be accessed by seasons under <a href="findings.html">findings</a>.
+									</p>
+									
+								</div>
+							</div>
+
+					</section>
+
+				<!-- Footer -->
+					<!-- Footer -->
+					<section id="footer">
+						<div class="inner">
+							<div class="icons" align="center">
+							    <a href="mailto:bhmasohail@gmail.com" class="icon solid fa-envelope" target="_blank"></a>
+								&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+								<a href="https://www.linkedin.com/in/amir-sohil/" class="icon brands fa-linkedin" target="_blank"></a>
+								&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+								<a href="https://github.com/amirsohil" class="icon brands fa-github" target="_blank"></a>
+							</div>
+							<ul class="copyright">
+								<li>&copy; COBScDS221P-008. All rights reserved.</li><li><a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
